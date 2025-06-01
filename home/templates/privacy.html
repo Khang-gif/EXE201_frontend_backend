@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}Privacy & Security - Dimension Studio{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <h1 class="display-4 text-center mb-5">Privacy & Security</h1>
+            
+            <div class="mb-5">
+                <p>At Dimension Studio, protecting your personal information is our top priority. We are committed to creating a secure, seamless digital experience for every user. This Privacy & Security Policy explains what information we collect, how we use it, and the robust measures we take to safeguard your data. By using our services, you agree to the practices described below.</p>
+            </div>
+            
+            <div class="mb-5">
+                <h2 class="h3 mb-4">What Information We Collect</h2>
+                <ul class="list-unstyled">
+                    <li class="mb-3">
+                        <strong>Personal Information:</strong> Such as your name, email address, phone number, and password when you create an account.
+                    </li>
+                    <li class="mb-3">
+                        <strong>Usage Data:</strong> Details about your interactions with our platform, including pages visited, features used, and session logs.
+                    </li>
+                    <li class="mb-3">
+                        <strong>Device Information:</strong> Information from your device, including IP address, browser type, and device identifiers.
+                    </li>
+                    <li class="mb-3">
+                        <strong>Media Files:</strong> Photos or other media you upload as part of our digital try-on features.
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="mb-5">
+                <h2 class="h3 mb-4">How We Use Your Information</h2>
+                <p class="mb-3">We use your data to:</p>
+                <ul class="list-unstyled">
+                    <li class="mb-2">• <strong>Enhance User Experience:</strong> Personalize and improve the services we provide.</li>
+                    <li class="mb-2">• <strong>Communicate:</strong> Send you updates, offers, and important notifications.</li>
+                    <li class="mb-2">• <strong>Ensure Security:</strong> Monitor, protect, and improve our platform against unauthorized access and fraud.</li>
+                    <li class="mb-2">• <strong>Analyze Trends:</strong> Understand user behavior to continually refine our services.</li>
+                </ul>
+            </div>
+            
+            <div class="mb-5">
+                <h2 class="h3 mb-4">How We Protect Your Information</h2>
+                <p class="mb-3">Your security is critical to us. We implement industry-standard measures including:</p>
+                <ul class="list-unstyled">
+                    <li class="mb-2">• <strong>Data Encryption:</strong> All sensitive data is encrypted both in transit and at rest.</li>
+                    <li class="mb-2">• <strong>Access Controls:</strong> Restricting data access to authorized personnel only.</li>
+                    <li class="mb-2">• <strong>Regular Audits:</strong> Conducting routine security reviews to identify and address potential vulnerabilities.</li>
+                    <li class="mb-2">• <strong>Data Anonymization:</strong> Aggregating or anonymizing data when used for analytics or service improvements.</li>
+                </ul>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    <form method="post" class="contact-form">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="surname" class="form-label">Surname</label>
+                            <input type="text" class="form-control" id="surname" name="surname" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-dark w-100">Submit</button>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-center mt-4">
+                        <a href="{% url 'home:contact' %}" class="btn btn-dark btn-lg">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
