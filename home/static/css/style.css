@@ -14,21 +14,74 @@ footer p {
     font-size: 0.9rem;
     color: #666;
 }
-/* Đặt logo to hơn */
-header a.d-flex.align-items-center {
-    width: 60px;  /* khung bao quanh nhỏ, không đẩy layout */
-    height: 60px;
-    overflow: visible;  /* cho phép ảnh tràn ra ngoài */
+header .container {
+    position: static; /* tránh làm relative nếu không cần */
+    overflow: visible; /* cho phép dropdown tràn ra ngoài */
+}
+header ul.nav li.nav-item a.nav-link {
     position: relative;
+    text-decoration: none;
 }
 
-header a.d-flex.align-items-center img   {
-    height: 90px; /* giữ ảnh gốc nhỏ */
-    transform: scale(1.6); /* phóng lớn hiển thị */
-    transform-origin: left center; /* phóng ra bên trái */
+header ul.nav li.nav-item a.nav-link:not(.dropdown-toggle)::after {
+    content: "";
     position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
     left: 0;
-    top: 50%;
-    translate: 0 -50%; /* căn giữa theo chiều dọc */
-    pointer-events: none; /* tránh chặn click */
+    background-color: currentColor;
+    transition: width 0.4s ease;
 }
+
+header ul.nav li.nav-item a.nav-link:hover::after {
+    width: 100%;
+}
+
+
+.dropdown-menu {
+    background-color: #212529; 
+    border: none;
+}
+.dropdown-menu .dropdown-item {
+    position: relative;
+    color: #fff;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+footer .footer-link {
+    font-size: 1.1rem;
+    font-weight: 500;
+    position: relative;
+    text-decoration: none;
+    color: #212529;
+    transition: color 0.2s;
+}
+footer .footer-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: currentColor;
+    transition: width 0.4s ease;
+}
+footer .footer-link:hover {
+    color: #000;
+}
+footer .footer-link:hover::after {
+    width: 100%;
+}
+
+.nav-link#userDropdown i.fas.fa-user {
+    font-size: 1.8rem;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+

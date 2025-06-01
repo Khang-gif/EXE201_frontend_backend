@@ -5,29 +5,73 @@
     <meta charset="UTF-8">
     <title>Dimension Studio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <header class="py-3">
         <div class="container d-flex flex-wrap align-items-center justify-content-between">
-            <a href="{% url 'home:home' %}" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-                <img src="/media/logo.png" alt="Dimension Studio Logo" height="50">
+            <a href="{% url 'home:home' %}">
+                <img src="/media/logo.png" alt="Dimension Studio Logo" height="150">
             </a>
-            <ul class="nav justify-content-end gap-3">
+            <ul class="nav justify-content-end gap-5">
                 <li class="nav-item"><a href="#how-it-works" class="nav-link px-2 link-dark">How It Works</a></li>
                 <li class="nav-item"><a href="#demo" class="nav-link px-2 link-dark">Demo</a></li>
-                <li class="nav-item"><a href="#about-us" class="nav-link px-2 link-dark">About Us</a></li>
-                <li class="nav-item"><a href="#more" class="btn btn-dark">More</a></li>
+                <li class="nav-item"><a href="{% url 'home:about_us'%}" class="nav-link px-2 link-dark">About Us</a></li>
+                <li class="nav-item dropdown">
+                    <a class="btn btn-dark dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        More
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="moreDropdown">
+                        <li><a class="dropdown-item" href="#option1">Resource</a></li>
+                        <li><a class="dropdown-item" href="#option2">Career</a></li>
+                        <li><a class="dropdown-item" href="#option3">Pricing</a></li>
+                        <li><a class="dropdown-item" href="#option4">Privacy</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown" style="margin-left: 20px; border: 0.5px solid #000000;">
+                    <a class="nav-link px-2 link-dark dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                        <li><a class="dropdown-item" href="#profile">Profile</a></li>
+                        <li><a class="dropdown-item" href="#logout">Logout</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </header>
 
-    <main class="container mt-4">
+    <main class="mt-4">
         {% block content %}
         <!-- Nội dung trang sẽ nằm đây -->
         {% endblock %}
     </main>
-
+    
+    <footer class="bg-light py-1 mt-5 border-top">
+        <div class="container">
+            <div class="row align-items-center mb-3">
+                <div class="col-md-auto text-center text-md-start mb-3 mb-md-0">
+                    <a href="{% url 'home:home' %}">
+                        <img src="/media/logo.png" alt="Dimension Studio Logo" height="150" style="background-color: #f8f9fa; border-radius: 12px; padding: 8px;">
+                    </a>
+                    <div class="d-flex justify-content-center justify-content-md-start mt-2" style="gap: 1.5rem;">
+                        <a href="#" class="text-dark fs-4"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-dark fs-4"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-dark fs-4"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="text-dark fs-4"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col d-flex justify-content-center justify-content-md-end align-items-center">
+                    <div class="d-flex" style="gap: 8rem;">
+                        <a href="{% url 'home:about_us' %}" class="footer-link">About Us</a>
+                        <a href="#contact" class="footer-link">Contact</a>
+                        <a href="#privacy" class="footer-link">Privacy & Security</a>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
